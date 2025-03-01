@@ -9,7 +9,7 @@
                             <div><img src="https://mc.yandex.ru/watch/98444042" style="position:absolute; left:-9999px;" alt=""></div>
                         </noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.b8c6d6fc.css">
-<script src="/assets/js/runtime~main.7b8e3f87.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.66fea5b0.js" defer="defer"></script>
 <script src="/assets/js/main.af2907c5.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -24,7 +24,7 @@
 <p>для любой модели (white-box, black-box models);</p>
 </li>
 <li>
-<p>для любой задачи (классификация, регерссия и др.);</p>
+<p>для любой задачи (классификация, регрессия и др.);</p>
 </li>
 <li>
 <p>для любой функции потерь.</p>
@@ -56,8 +56,8 @@
  114 68 191 68 78 0 168-68 177-68 4 0 7 2 9 5l12 19c1 2.175 2 4.35 2 6.525 0
  4.35-2 7.613-5 9.788l-19 13.05c-92 63.077-116.937 75.308-183 76.128
 -68.267.847-113-73.952-191-73.952z"></path></svg></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3117em"><span style="top:-2.55em;margin-left:-0.0785em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.05724em">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em"></span><span class="mord mathnormal" style="margin-right:0.22222em">Y</span><span class="mclose delimcenter" style="top:0em"><span class="delimsizing size2">)</span></span></span><span class="mspace" style="margin-right:0.2222em"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em"></span><span class="mord mathnormal">L</span><span class="mspace" style="margin-right:0.1667em"></span><span class="minner"><span class="mopen delimcenter" style="top:0em">(</span><span class="mord mathnormal" style="margin-right:0.10764em">f</span><span class="mord">∣</span><span class="mord mathnormal" style="margin-right:0.07847em">X</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em"></span><span class="mord mathnormal" style="margin-right:0.22222em">Y</span><span class="mclose delimcenter" style="top:0em">)</span></span></span><span class="tag"><span class="strut" style="height:1.8em;vertical-align:-0.65em"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">2</span></span><span class="mord">)</span></span></span></span></span></span>
-<p>Таким образом, перестановочная важность признака показывает во сколько/на сколько среднее качество прогнозов изменится, если модель не сможет использовать информацию, хранящуюся в этом признаке, при построении прогнозов.</p>
-<p>Обратим внимание, что результат зависит от случайной перестановки признака. При различных перестановках будем получать различный результат. Поэтому рекомендуется запускать расчёт несколько раз и в качестве ответа выдавать средние значения важности признаков.</p>
+<p>Таким образом, перестановочная важность признака показывает, во сколько/на сколько среднее качество прогнозов изменится, если модель не сможет использовать информацию, хранящуюся в этом признаке, при построении прогнозов.</p>
+<p>Обратим внимание, что результат зависит от случайной перестановки признака. При различных перестановках будем получать различный результат. Поэтому рекомендуется запускать расчёт несколько раз и в качестве ответа выдавать средние  значения важности признаков.</p>
 <p>Пример расчёта важности признаков по формуле (1) для задачи <a href="https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset" target="_blank" rel="noopener noreferrer">bike sharing</a> приведён ниже (<a href="https://christophm.github.io/interpretable-ml-book/feature-importance.html" target="_blank" rel="noopener noreferrer">источник</a>), где точками обозначены средние значения важности при перезапусках метода, а интервал показывает нижнюю и верхнюю квантиль по значениям в различных запусках:</p>
 <p><img decoding="async" loading="lazy" alt="permutation-feature-importance.png" src="/assets/images/permutation-feature-importance-90a9d237f9cf7a1f0a893604d59a3c29.png" width="843" height="602" class="img_ev3q"></p>
 <p>Как видим, все признаки оказывают значимое влияние на прогноз, кроме признака holiday, поскольку его доверительный интервал покрывает единицу.</p>
@@ -65,7 +65,7 @@
 <p>Перестановочную важность признаков можно считать</p>
 <ul>
 <li>
-<p>по обучающей выборке: тогда узнаем, на какие признаки модель сильнее всего переобучилась</p>
+<p>по обучающей выборке: тогда узнаем, на каких признаках модель сильнее всего переобучилась;</p>
 </li>
 <li>
 <p>по валидационной тестовой выборке: тогда узнаем, какой признак в действительности полезнее для прогнозов.</p>
