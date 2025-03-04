@@ -9,7 +9,7 @@
                             <div><img src="https://mc.yandex.ru/watch/98444042" style="position:absolute; left:-9999px;" alt=""></div>
                         </noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.b8c6d6fc.css">
-<script src="/assets/js/runtime~main.66fea5b0.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.a375be12.js" defer="defer"></script>
 <script src="/assets/js/main.af2907c5.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -28,7 +28,7 @@
 </li>
 </ul>
 <p><img decoding="async" loading="lazy" src="/assets/images/11-sentiment-analysis-f2f1113757029f3fd2abb39a28137bbe.jpg" width="1215" height="260" class="img_ev3q"></p>
-<p><strong>Распознавание именованных сущностей</strong> (named entity recognition, NER) - другая популярная задача на текстах, состоящая в автоматическом выделении сущностей интересующего вида (имена людей, компаний, время, стоимость и т.д.) из неструктурированного текста. Например строка:</p>
+<p><strong>Распознавание именованных сущностей</strong> (named entity recognition, NER) - другая популярная задача на текстах, состоящая в автоматическом выделении сущностей интересующего вида (таких, как имена людей, компаний, время, стоимость и т.д.) из неструктурированного текста. Например, строка:</p>
 <blockquote>
 <p>Google bought YouTube in November 2006 for US$1.65 billion.</p>
 </blockquote>
@@ -36,35 +36,35 @@
 <blockquote>
 <p>[Google]<sub>company</sub> bought [YouTube]<sub>company</sub> in [November 2006]<sub>time</sub> for [US$1.65 billion]<sub>price</sub>.</p>
 </blockquote>
-<p>Иногда ссылка на именованные сущности происходит посредством местоимения, как в следующем предложении.</p>
+<p>Иногда ссылка на именованные сущности происходит посредством местоимения, как в следующем предложении:</p>
 <blockquote>
 <p>Джон помог Мэри. Он был добрым.</p>
 </blockquote>
 <p>Задачей <strong>разрешения анафоры</strong> (anaphora resolution) является выявить, на какой объект ссылаются местоимения в тексте (&quot;он&quot; ссылается на Джона).</p>
-<p>Для более удобной обработки текста, часто для неструктурированного текста строится <strong>дерево синтаксического разбора</strong> (syntax parse tree, <a href="https://commons.wikimedia.org/wiki/File:The_cat_sat_on_the_mat.png" target="_blank" rel="noopener noreferrer">источник</a>), представляющее предложения в виде иерархической структуры:</p>
+<p>Для более удобной обработки текста часто строится по нему <strong>дерево синтаксического разбора</strong> (syntax parse tree, <a href="https://commons.wikimedia.org/wiki/File:The_cat_sat_on_the_mat.png" target="_blank" rel="noopener noreferrer">источник</a>), представляющее предложения в виде иерархической структуры:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/11-syntax-parse-tree-e60ea7e507741adc49d68444a2e25ac4.png" width="820" height="597" class="img_ev3q"></p>
 <p>Используются следующие аббревиатуры:</p>
 <ul>
 <li>
-<p>S=sentence (предложение)</p>
+<p>S=sentence (предложение);</p>
 </li>
 <li>
-<p>NP=noun phrase (фраза с существительным)</p>
+<p>NP=noun phrase (фраза с существительным);</p>
 </li>
 <li>
-<p>N=noun (существительное)</p>
+<p>N=noun (существительное);</p>
 </li>
 <li>
-<p>VP=verb phrase (фраза с глаголом)</p>
+<p>VP=verb phrase (фраза с глаголом);</p>
 </li>
 <li>
-<p>V=verb (глагол)</p>
+<p>V=verb (глагол);</p>
 </li>
 <li>
-<p>D=determiner (частица)</p>
+<p>D=determiner (частица).</p>
 </li>
 </ul>
-<p>Распознавание именованных сущностей, разрешение анафор и пост роение дерева синтаксического разбора представляют собой первоначальные шаги задачи <strong>извлечения информации</strong> (information extraction) из неструктурированного текста, которые могут решать следующие задачи:</p>
+<p>Распознавание именованных сущностей, разрешение анафор и построение дерева синтаксического разбора представляют собой первоначальные шаги задачи <strong>извлечения информации</strong> (information extraction) из неструктурированного текста, которые могут решать следующие задачи:</p>
 <ul>
 <li>
 <p><strong>суммаризация текста</strong> (text summarization) - краткий пересказ длинной истории, генерация основных выводов из текста;</p>
@@ -73,13 +73,13 @@
 <p><strong>информационный поиск</strong> (information retrieval) - поиск документов или их фрагментов, релевантных поисковому запросу;</p>
 </li>
 <li>
-<p><strong>автоматический ответ на вопросы</strong> (question answering) - построение ответов на вопросы пользователя на естественном языке, возможно, с аргументацией;</p>
+<p><strong>автоматические ответы на вопросы</strong> (question answering) - построение ответов на вопросы пользователя на естественном языке, возможно, с аргументацией;</p>
 </li>
 <li>
 <p><strong>чат-боты</strong>, самостоятельно поддерживающие разговор с пользователем и помнящие контекст беседы;</p>
 </li>
 <li>
-<p><strong>извлечение событий</strong> (event extraction) определенного вида в структурированном виде, например, информации о покупке одних компаний другими компаниями при торговле на бирже;</p>
+<p><strong>извлечение событий</strong> (event extraction) определенного вида в структурированном виде, например, информации о покупке одних компаний другими при торговле на бирже;</p>
 </li>
 <li>
 <p><strong>построение онтологий</strong> (<a href="https://en.wikipedia.org/wiki/Ontology_learning" target="_blank" rel="noopener noreferrer">ontology learning</a>) - извлечение информации из текста или коллекции текстов об окружающем мире в виде графа знаний (<a href="https://en.wikipedia.org/wiki/Knowledge_graph" target="_blank" rel="noopener noreferrer">knowledge graph</a>), как показано ниже:</p>
@@ -95,7 +95,7 @@
 <p><strong>Определение автора по тексту</strong> - определить, принадлежат ли два фрагмента текста одному автору.</p>
 </li>
 <li>
-<p><strong>Стилизация текста</strong> - переформулировка текста в заданном стиле (например из разговорного стиля в формальный деловой).</p>
+<p><strong>Стилизация текста</strong> - переформулировка текста в заданном стиле (например, из разговорного стиля в формальный деловой).</p>
 </li>
 <li>
 <p><strong>Генерация текста по заданной теме</strong>.</p>
