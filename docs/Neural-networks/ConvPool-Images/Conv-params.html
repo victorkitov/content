@@ -9,7 +9,7 @@
                             <div><img src="https://mc.yandex.ru/watch/98444042" style="position:absolute; left:-9999px;" alt=""></div>
                         </noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.b8c6d6fc.css">
-<script src="/assets/js/runtime~main.041a0d8b.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.d1559efd.js" defer="defer"></script>
 <script src="/assets/js/main.d39ef36e.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -17,10 +17,10 @@
 <p>Точно так же, как и при <a href="/docs/Neural-networks/ConvPool-1D/Conv-1D-params">обработке последовательностей</a>, у свёртки для изображений есть <strong>параметры</strong> (настраиваемые в процессе градиентной оптимизации):</p>
 <ul>
 <li>
-<p>элементы ядра (convolution kenrel)</p>
+<p>элементы ядра (convolution kernel),</p>
 </li>
 <li>
-<p>смещение (bias)</p>
+<p>смещение (bias).</p>
 </li>
 </ul>
 <p>Также у свёртки есть <strong>гиперпараметры</strong> (задаваемые извне):</p>
@@ -35,11 +35,11 @@
 <p>шаг (stride),</p>
 </li>
 <li>
-<p>и сдвиг (dilation).</p>
+<p>сдвиг (dilation).</p>
 </li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="паддинг">Паддинг<a class="hash-link" aria-label="Прямая ссылка на Паддинг" title="Прямая ссылка на Паддинг" href="/docs/Neural-networks/ConvPool-Images/Conv-params#паддинг">​</a></h2>
-<p><strong>Паддинг свёртки</strong> (padding) - предварительное расширение карты входных признаков, чтобы увеличить размер выходной карты активаций свёртки (feature map). Паддинг применяется к каждому входному каналу независимо.</p>
+<p><strong>Паддинг свёртки</strong> (padding) - предварительное расширение карты входных признаков с целью увеличения размера выходной карты активаций свёртки (feature map). Паддинг применяется к каждому входному каналу независимо.</p>
 <p>Примеры работы основных видов паддинга (valid, zero, same, mirror) приведены ниже:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/valid-padding-ea169f3978aa561dfd8872ec5182bc66.png" width="303" height="342" class="img_ev3q"></p>
 <p><img decoding="async" loading="lazy" src="/assets/images/zero-padding-0302acc73d309ff579ba8ba7d7654379.png" width="441" height="491" class="img_ev3q"></p>
@@ -67,6 +67,6 @@
 <p><img decoding="async" loading="lazy" src="/assets/images/03-conv-e1ffe0a7c5ec0536ca20409db9493c67.png" width="303" height="342" class="img_ev3q"></p>
 <p>Процесс продолжается последовательно для каждой строки входа, пока не дойдём до последней позиции:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/04-conv-d4abd71c9e6c5432db4e4cd1c513c132.png" width="303" height="342" class="img_ev3q"></p>
-<p>Сдвиг больше единицы повышает <strong>область видимости свёртки</strong> (receptive field), не увеличивая число её параметров, и полезен для извлечения информативных признаков из изображений высокого разрешения, на которых интенсивности пикселей меняются плавно.</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Страница документа"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Neural-networks/ConvPool-Images/Conv-images"><div class="pagination-nav__sublabel">Предыдущая страница</div><div class="pagination-nav__label">Свёртка для изображений</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Neural-networks/ConvPool-Images/Pooling"><div class="pagination-nav__sublabel">Следующая страница</div><div class="pagination-nav__label">Пулинг</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a class="table-of-contents__link toc-highlight" href="/docs/Neural-networks/ConvPool-Images/Conv-params#паддинг">Паддинг</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/Neural-networks/ConvPool-Images/Conv-params#шаг-stride">Шаг (stride)</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/Neural-networks/ConvPool-Images/Conv-params#сдвиг-dilation">Сдвиг (dilation)</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">© 2023-25 <a href="https://victorkitov.github.io/">Виктор Китов</a>.</div></div></div></footer></div>
+<p>Сдвиг больше единицы повышает <strong>область видимости свёртки</strong> (receptive field), не увеличивая число её параметров, и полезен для извлечения информативных признаков из изображений высокого разрешения, на кото рых интенсивности пикселей меняются плавно.</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Страница документа"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Neural-networks/ConvPool-Images/Conv-images"><div class="pagination-nav__sublabel">Предыдущая страница</div><div class="pagination-nav__label">Свёртка для изображений</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Neural-networks/ConvPool-Images/Pooling"><div class="pagination-nav__sublabel">Следующая страница</div><div class="pagination-nav__label">Пулинг</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a class="table-of-contents__link toc-highlight" href="/docs/Neural-networks/ConvPool-Images/Conv-params#паддинг">Паддинг</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/Neural-networks/ConvPool-Images/Conv-params#шаг-stride">Шаг (stride)</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/Neural-networks/ConvPool-Images/Conv-params#сдвиг-dilation">Сдвиг (dilation)</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">© 2023-25 <a href="https://victorkitov.github.io/">Виктор Китов</a>.</div></div></div></footer></div>
 </body>
 </html>
