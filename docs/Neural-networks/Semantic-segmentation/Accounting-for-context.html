@@ -9,7 +9,7 @@
                             <div><img src="https://mc.yandex.ru/watch/98444042" style="position:absolute; left:-9999px;" alt=""></div>
                         </noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.b8c6d6fc.css">
-<script src="/assets/js/runtime~main.93d728c2.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.bf252f7e.js" defer="defer"></script>
 <script src="/assets/js/main.d39ef36e.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -19,31 +19,31 @@
 <p>Учитывать более широкий контекст можно, увеличивая число свёрточных слоёв. Тогда более поздние свёртки будут иметь более широкую область видимости. Однако это приводит к большему числу вычислений и усложняет настройку сетей.</p>
 <p>Для эффективного учёта контекста можно использовать свёртки со <a href="/docs/Neural-networks/ConvPool-Images/Conv-params#%D1%81%D0%B4%D0%B2%D0%B8%D0%B3-dilation">сдвигом</a> (dilation) больше единицы либо учитывать результаты <a href="/docs/Neural-networks/ConvPool-Images/Pooling#%D0%BF%D0%B8%D1%80%D0%B0%D0%BC%D0%B8%D0%B4%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%BF%D1%83%D0%BB%D0%B8%D0%BD%D0%B3">пирамидального пулинга</a>.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="pspnet">PSPNet<a class="hash-link" aria-label="Прямая ссылка на PSPNet" title="Прямая ссылка на PSPNet" href="/docs/Neural-networks/Semantic-segmentation/Accounting-for-context#pspnet">​</a></h2>
-<p>Модель <strong>PSPNet</strong> [<a href="https://openaccess.thecvf.com/content_cvpr_2017/html/Zhao_Pyramid_Scene_Parsing_CVPR_2017_paper.html" target="_blank" rel="noopener noreferrer">1</a>] позволяет повысить точность семантической сегментации за счёт использования более глобального контекста, чем область видимости свёрток. Это достигается тем, что промежуточное представление, по которому производится сегментация состоит из</p>
+<p>Модель <strong>PSPNet</strong> <a href="https://openaccess.thecvf.com/content_cvpr_2017/html/Zhao_Pyramid_Scene_Parsing_CVPR_2017_paper.html" target="_blank" rel="noopener noreferrer">[1]</a> позволяет повысить точность семантической сегментации за счёт использования более глобального контекста, чем область видимости свёрток. Это достигается тем, что промежуточное представление, по которому производится сегментация, состоит из</p>
 <ul>
 <li>
-<p>промежуточного представления классификатора <a href="/docs/Neural-networks/Convolutional-architectures/ResNet#%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D1%82%D1%8B-%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D1%8B">ResNet101</a> со свёртками со сдвигом (dilation) больше единицы,</p>
+<p>промежуточного представления классификатора <a href="/docs/Neural-networks/Convolutional-architectures/ResNet#%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D1%82%D1%8B-%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D1%8B">ResNet101</a> со свёртками со сдвигом (dilation) больше единицы;</p>
 </li>
 <li>
 <p>выходов пирамидального пулинга, растянутых до пространственных размеров промежуточного представления из ResNet101.</p>
 </li>
 </ul>
-<p>Графически схема PSPNet показана ниже [<a href="https://openaccess.thecvf.com/content_cvpr_2017/html/Zhao_Pyramid_Scene_Parsing_CVPR_2017_paper.html" target="_blank" rel="noopener noreferrer">1</a>]:</p>
+<p>Графически схема PSPNet показана ниже <a href="https://openaccess.thecvf.com/content_cvpr_2017/html/Zhao_Pyramid_Scene_Parsing_CVPR_2017_paper.html" target="_blank" rel="noopener noreferrer">[1]</a>:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/PSPNet-4dd316987bb5328ca507884a9eb0e88b.jpg" width="1443" height="399" class="img_ev3q"></p>
 <p>Использовалось 4 слоя пирамидального пулинга с сетками 1x1, 2x2, 3x3, 6x6. Для того, чтобы уменьшить число каналов, получаемых из пирамидального пулинга, признаки  пулинга пропускались через <a href="/docs/Neural-networks/ConvPool-Images/Special-conv#%D0%BF%D0%BE%D1%82%D0%BE%D1%87%D0%B5%D1%87%D0%BD%D0%B0%D1%8F-%D1%81%D0%B2%D1%91%D1%80%D1%82%D0%BA%D0%B0">свёртки 1x1</a>, снижающие число каналов в 4 раза.</p>
-<p>ResNet101 обучался на задачу классификации. Для более эффективной настройки во время его обучения использовались потери классификации как в конце сети, так и в середине (принцип <strong>deep supervision</strong>), что графически показано на рисунке:</p>
+<p>ResNet101 обучался на задачу классификации. Для более эффективной настройки во время его обучения использовались потери классифи кации как в конце сети, так и в середине (принцип <strong>deep supervision</strong>), что графически показано на рисунке:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/PSPNet-backbone-deep-supervision-1584edda7700ab80f6d56823912bf952.jpg" width="957" height="302" class="img_ev3q"></p>
 <p>Использование свёрток со сдвигом больше единицы (dilation&gt;1) дополнительно повышало область видимости свёрток, заставляя их учитывать более широкий контекст.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="deeplab">DeepLab<a class="hash-link" aria-label="Прямая ссылка на DeepLab" title="Прямая ссылка на DeepLab" href="/docs/Neural-networks/Semantic-segmentation/Accounting-for-context#deeplab">​</a></h2>
-<p><strong>DeepLab</strong> представляет собой серию моделей версии 1,2,3,3+ с постепенным улучшением качества. Рассмотрим <strong>DeepLab v3+</strong> [<a href="https://openaccess.thecvf.com/content_ECCV_2018/html/Liang-Chieh_Chen_Encoder-Decoder_with_Atrous_ECCV_2018_paper.html" target="_blank" rel="noopener noreferrer">2</a>]. Для извлечения промежуточного признакового описания использовались свёрточные слои архитектуры <a href="/docs/Neural-networks/Convolutional-architectures/ResNet-improvements#xception-%D0%B8-resnext">Xception</a>, основанной на использовании <a href="/docs/Neural-networks/ConvPool-Images/Special-conv#%D0%BF%D0%BE%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F-%D1%81%D0%B2%D1%91%D1%80%D1%82%D0%BA%D0%B0">поканальных сепарабельных свёрток</a> (depthwise separable convolutions), состоящих из поканалоных свёрток, п оверх которых действовали свёртки 1x1. В DeepLab v3+ поканальные свёртки шли со сдвигом (dilation) больше единицы, и назывались <strong>Atrous convolutions</strong>.</p>
-<p>Графически произведённая замена показана ниже [<a href="https://openaccess.thecvf.com/content_ECCV_2018/html/Liang-Chieh_Chen_Encoder-Decoder_with_Atrous_ECCV_2018_paper.html" target="_blank" rel="noopener noreferrer">2</a>]:</p>
+<p><strong>DeepLab</strong> представляет собой серию моделей версии 1,2,3,3+ с постепенным улучшением качества. Рассмотрим <strong>DeepLab v3+</strong> <a href="https://openaccess.thecvf.com/content_ECCV_2018/html/Liang-Chieh_Chen_Encoder-Decoder_with_Atrous_ECCV_2018_paper.html" target="_blank" rel="noopener noreferrer">[2]</a>. Для извлечения промежуточного признакового описания использовались свёрточные слои архитектуры <a href="/docs/Neural-networks/Convolutional-architectures/ResNet-improvements#xception-%D0%B8-resnext">Xception</a>, основанной на использовании <a href="/docs/Neural-networks/ConvPool-Images/Special-conv#%D0%BF%D0%BE%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F-%D1%81%D0%B2%D1%91%D1%80%D1%82%D0%BA%D0%B0">поканальных сепарабельных свёрток</a> (depthwise separable convolutions), состоящих из поканальных свёрток,  поверх которых действовали свёртки 1x1. В DeepLab v3+ поканальные свёртки шли со сдвигом (dilation) больше единицы и назывались <strong>Atrous convolutions</strong>.</p>
+<p>Графически произведённая замена показана ниже <a href="https://openaccess.thecvf.com/content_ECCV_2018/html/Liang-Chieh_Chen_Encoder-Decoder_with_Atrous_ECCV_2018_paper.html" target="_blank" rel="noopener noreferrer">[2]</a>:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/dilated-separable-conv-860c4b006f55f925b25cb20c4a7bd5cc.png" width="733" height="534" class="img_ev3q"></p>
 <p>Также в DeepLab v3+ параллельно использовался набор свёрток с разным сдвигом: dilation=6,12,18, которые дополнялись признаками из глобального пулинга. Эта конструкция была названа Atrous Spatial Pyramid Pooling (ASPP).</p>
-<p>Архитектура DeepLab v3+ целиком показана ниже [<a href="https://openaccess.thecvf.com/content_ECCV_2018/html/Liang-Chieh_Chen_Encoder-Decoder_with_Atrous_ECCV_2018_paper.html" target="_blank" rel="noopener noreferrer">2</a>]:</p>
+<p>Архитектура DeepLab v3+ целиком показана ниже <a href="https://openaccess.thecvf.com/content_ECCV_2018/html/Liang-Chieh_Chen_Encoder-Decoder_with_Atrous_ECCV_2018_paper.html" target="_blank" rel="noopener noreferrer">[2]</a>:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/DeepLab-architecture2-55f250877e7bbf792ec512658a4bde16.png" width="1049" height="547" class="img_ev3q"></p>
 <p>А еще ниже показан стэк из свёрток с разным сдвигом (для архитектуры DeepLab v2) [<a href="https://ieeexplore.ieee.org/abstract/document/7913730" target="_blank" rel="noopener noreferrer">3</a>]:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/ASPP-block-76086c8a12d9ab24cbe7278f07bc28fc.png" width="859" height="443" class="img_ev3q"></p>
-<p>Результаты действия свёрток с разными сдвигами конкатенировались и дополнялись признаками, полученными с глобального пулинга.</p>
+<p>Результаты действия свёрток с разными сдвигами конкатенировались и дополнял ись признаками, полученными с глобального пулинга.</p>
 <blockquote>
 <p>Всё это позволило при сегментации пикселей учитывать как локальные контексты разного размера, так и глобальный контекст в целом.</p>
 </blockquote>
