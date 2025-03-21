@@ -9,7 +9,7 @@
                             <div><img src="https://mc.yandex.ru/watch/98444042" style="position:absolute; left:-9999px;" alt=""></div>
                         </noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.b8c6d6fc.css">
-<script src="/assets/js/runtime~main.8a45410f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.93d728c2.js" defer="defer"></script>
 <script src="/assets/js/main.d39ef36e.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -23,7 +23,7 @@
 <p>Архитектурно сеть представляет собой усложнённую версию <a href="/docs/Neural-networks/Convolutional-architectures/LeNet">LeNet</a> [<a href="https://en.wikipedia.org/wiki/AlexNet" target="_blank" rel="noopener noreferrer">2</a>]:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/LeNet-vs-AlexNet-be38bc914ec78342e16b6f68790c90d0.png" width="1280" height="960" class="img_ev3q"></p>
 <p>В AlexNet больше <a href="/docs/Neural-networks/ConvPool-Images/Conv-images#%D1%81%D0%B2%D1%91%D1%80%D1%82%D0%BE%D1%87%D0%BD%D1%8B%D0%B9-%D1%81%D0%BB%D0%BE%D0%B9">свёрточных слоёв</a>, <a href="/docs/Neural-networks/ConvPool-Images/Pooling">слоёв пулинга</a>, а <a href="/docs/Neural-networks/MLP/Multilayer-perceptron">полносвязные слои</a> содержат больше нейронов.</p>
-<p>Настройка такой большой сети стала возможной за счёт использования видеокарт (graphics processing unit, GPU), позволивших производить векторные операции за один такт, используя параллельные вычисления на многих встроенных ядрах. Память видеокарт того времени (GTX 580 с 3 GB памя­ти) не позволила разместить нейросеть целиком, поэтому авторам пришлось использовать <a href="/docs/Neural-networks/ConvPool-Images/Special-conv#%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D0%BE%D0%B2%D0%B0%D1%8F-%D1%81%D0%B2%D1%91%D1%80%D1%82%D0%BA%D0%B0">групповые свертки</a>, разбив число каналов пополам и каждую половину обрабатывать на отдельной видеокарте, как показано ниже [<a href="https://libeldoc.bsuir.by/bitstream/123456789/39033/1/Prokopenya_Svertochnyye.pdf" target="_blank" rel="noopener noreferrer">3</a>]:</p>
+<p>Настройка такой большой сети стала возможной за счёт использования видеокарт (graphics processing unit, GPU), позволивших производить векторные операции за один такт, используя параллельные вычисления на многих встроенных ядрах. Память видеокарт того времени (GTX 580 с 3 GB памя­ти) не позволила разместить нейросеть целиком, поэтому авторам пришлось использовать <a href="/docs/Neural-networks/ConvPool-Images/Special-conv#%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D0%BE%D0%B2%D0%B0%D1%8F-%D1%81%D0%B2%D1%91%D1%80%D1%82%D0%BA%D0%B0">групповые свёртки</a>, разбив число каналов пополам. Каждую половину обрабатывать на отдельной видеокарте, как показано ниже [<a href="https://libeldoc.bsuir.by/bitstream/123456789/39033/1/Prokopenya_Svertochnyye.pdf" target="_blank" rel="noopener noreferrer">3</a>]:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/AlexNet-parallel-b7eac8052332045024d4d3703166e045.png" width="1022" height="472" class="img_ev3q"></p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="инженерные-улучшения">Инженерные улучшения<a class="hash-link" aria-label="Прямая ссылка на Инженерные улучшения" title="Прямая ссылка на Инженерные улучшения" href="/docs/Neural-networks/Convolutional-architectures/AlexNet-ZFnet#инженерные-улучшения">​</a></h3>
 <p>Помимо увеличения числа слоёв, в AlexNet (по сравнению с <a href="/docs/Neural-networks/Convolutional-architectures/LeNet">LeNet</a>) использовались следующие архитектурные улучшения:</p>
@@ -41,14 +41,14 @@
 <p>на полносвязные слои действовала регуляризация <a href="/docs/Neural-networks/Regularization/DropOut">DropOut</a> и <a href="/docs/Neural-networks/Regularization/Weights-regularization">L2</a>;</p>
 </li>
 <li>
-<p>в время обучения использовалась <a href="/docs/Neural-networks/Regularization/Augmentation">аугментация данных</a>;</p>
+<p>во время обучения использовалась <a href="/docs/Neural-networks/Regularization/Augmentation">аугментация данных</a>;</p>
 </li>
 <li>
-<p>в конце действует <a href="/docs/Neural-networks/MLP/Outputs-loss-functions#%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%BE%D0%B2%D0%B0%D1%8F-%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F">SoftMax преобразование</a> рейтингов классов.</p>
+<p>в конце действует <a href="/docs/Neural-networks/MLP/Outputs-loss-functions#%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%BE%D0%B2%D0%B0%D1%8F-%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F">SoftMax-преобразование</a> рейтингов классов.</p>
 </li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="модель-zfnet">Модель ZFNet<a class="hash-link" aria-label="Прямая ссылка на Модель ZFNet" title="Прямая ссылка на Модель ZFNet" href="/docs/Neural-networks/Convolutional-architectures/AlexNet-ZFnet#модель-zfnet">​</a></h2>
-<p>В 2013 году на соревновании ILSVRC победила сеть <strong>ZFNet</strong> [<a href="https://arxiv.org/pdf/1311.2901v3" target="_blank" rel="noopener noreferrer">4</a>], не сильно отличная от AlexNet. В ней начальные фильтры были 7x7 (с <a href="/docs/Neural-networks/ConvPool-Images/Conv-params#%D1%88%D0%B0%D0%B3-stride">шагом</a> 2), а как в AlexNet 11x11 (с шагом 4). На 2м свёрточном слое использовались фильтры 5x5 также с шагом 2. В промежуточных представлениях использо валось больше каналов и нейронов. Архитектура сети представлена ниже [<a href="https://arxiv.org/pdf/1311.2901v3" target="_blank" rel="noopener noreferrer">4</a>]:</p>
+<p>В 2013 году на соревновании ILSVRC победила сеть <strong>ZFNet</strong> <a href="https://arxiv.org/pdf/1311.2901v3" target="_blank" rel="noopener noreferrer">[4]</a>, не сильно отличающаяся от AlexNet. В ней начальные фильтры были 7x7 (с <a href="/docs/Neural-networks/ConvPool-Images/Conv-params#%D1%88%D0%B0%D0%B3-stride">шагом</a> 2), тогда как в AlexNet - 11x11 (с шагом 4). На втором свёрточном слое использовались фильтры 5x5 также с шагом 2. В промежуточных представл ениях использовалось больше каналов и нейронов. Архитектура сети представлена ниже <a href="https://arxiv.org/pdf/1311.2901v3" target="_blank" rel="noopener noreferrer">[4]</a>:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/ZFnet-d4f148594fe7f04ce37790b949a45501.png" width="1061" height="255" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="литература">Литература<a class="hash-link" aria-label="Прямая ссылка на Литература" title="Прямая ссылка на Литература" href="/docs/Neural-networks/Convolutional-architectures/AlexNet-ZFnet#литература">​</a></h2>
 <ol>
