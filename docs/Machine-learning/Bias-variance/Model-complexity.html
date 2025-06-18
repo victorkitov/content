@@ -9,7 +9,7 @@
                             <div><img src="https://mc.yandex.ru/watch/98444042" style="position:absolute; left:-9999px;" alt=""></div>
                         </noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.b8c6d6fc.css">
-<script src="/assets/js/runtime~main.0e878948.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.1a23105b.js" defer="defer"></script>
 <script src="/assets/js/main.d9b5ca87.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -17,18 +17,18 @@
 <p>Зафиксируем прогностическую модель и начнём варьировать её сложность (гибкость), то есть способность подстраиваться под объекты обучающей выборки. В случае линейных моделей это будет множитель при регуляризаторе; в случае метода <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord mathnormal" style="margin-right:0.07153em">K</span></span></span></span> ближайших соседей - параметр <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord mathnormal" style="margin-right:0.07153em">K</span></span></span></span>; в случае решающего дерева это может быть максимальная глубина дерева или минимальное число объектов в листьях.</p>
 <p>Общий вид зависимости средних потерь от сложности модели машинного обучения выглядит следующим образом:</p>
 <p><img decoding="async" loading="lazy" alt="loss-vs-model-complexity.png" src="/assets/images/loss-vs-model-complexity-aa5dcfb82d20c763091b7af3cf838671.png" width="577" height="209" class="img_ev3q"></p>
-<p>Средние потери на тестовой выборке в общем случае выше, чем средние потери на обучающей выборке, поскольку параметры модели настраиваются именно под обучающую выборку.</p>
-<p>При увеличении сложности модели растёт её способность подстраиваться под обучающие данные, поэтому средние потери на обучении снижаются. А вот средние потери на тестовой выборке:</p>
+<p>Средние потери на тестовой выборке в общем случае выше, чем на обучающей выборке, поскольку параметры модели настраиваются именно под обучающую выборку.</p>
+<p>При увеличении сложности модели растёт её способность подстраиваться под обучающие данные, поэтому <u>средние потери на обучении снижаются</u>. А вот средние потери на тестовой выборке:</p>
 <ul>
 <li>
-<p>Сначала снижаются, когда модельная зависимость всё ещё слишком проста и не может в полной мере приближать реальную зависимость в данных. Такие модели называют недообученными (underfitted models).</p>
+<p><u>Сначала снижаются</u>, когда модельная зависимость всё ещё слишком проста и не может в полной мере приближать реальную зависимость в данных. Такие модели называют <strong>недообученными</strong> (underfitted models).</p>
 </li>
 <li>
-<p>Потом начинают повышаться, когда выразительная сложность модели становится выше сложности реальной зависимости в данных. Избыточную гибкость модель тратит на поточечную подстройку под специфику обучающей выборки, которая была сформирована случайно. То есть модель начинает выявлять ложные зависимости, которых нет в тестовой выборке. Такие модели называют переобученными (overfitted models).</p>
+<p><u>Потом начинают повышаться</u>, когда выразительная сложность модели становится выше сложности реальной зависимости в данных. Избыточную гибкость модель тратит на поточечную подстройку под специфику обучающей выборки, которая была сформирована случайно. То есть модель начинает выявлять ложные зависимости, которых нет в тестовой выборке. Такие модели называют <strong>переобученными</strong> (overfitted models).</p>
 </li>
 </ul>
-<p>Поэтому в каждом алгоритме важно настроить гиперпараметр, отвечающий за его сложность, чтобы сложность модели соответствовала сложности реальной зависимости в данных. На графике выше оптимальная сложность модели показана точкой A.</p>
-<p>На графике ниже приведён пример данных для регрессионной задачи с примерно квадратичной зависимостью между признаком и откликом. Слева показан пример недообученной модели, а справа - переобученной:</p>
+<p>Поэтому в каждом алгоритме важно настроить гиперпараметр, отвечающий за его сложность, чтобы сложность модели соответствовала сложности реальной зав исимости в данных. На графике выше оптимальная сложность модели показана точкой A.</p>
+<p>А ниже приведён пример данных для регрессионной задачи с примерно квадратичной зависимостью между признаком и откликом. Слева показан пример недообученной модели, а справа - переобученной:</p>
 <p><img decoding="async" loading="lazy" alt="under-overfitting.png" src="/assets/images/under-overfitting-9c300b48dd2371dbcd5bd2fda7a930e9.png" width="1143" height="310" class="img_ev3q"></p>
 <p>В <a href="/docs/Machine-learning/Bias-variance/Bias-variance-decomposition">следующей главе</a> мы изучим понятие переобучения и недообучения модели более формально, используя <strong>разложение на смещение и разброс</strong> (bias-variance decomposition).</p></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Страница документа"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Machine-learning/Overfitting-and-underfitting"><div class="pagination-nav__sublabel">Предыдущая страница</div><div class="pagination-nav__label">Переобучение и недообучение</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Machine-learning/Bias-variance/Bias-variance-decomposition"><div class="pagination-nav__sublabel">Следующая страница</div><div class="pagination-nav__label">Разложение на смещение и разброс</div></a></nav></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">© 2023-25 <a href="https://victorkitov.github.io/">Виктор Китов</a>.</div></div></div></footer></div>
 </body>
