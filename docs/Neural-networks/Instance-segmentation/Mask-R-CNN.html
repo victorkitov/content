@@ -9,7 +9,7 @@
                             <div><img src="https://mc.yandex.ru/watch/98444042" style="position:absolute; left:-9999px;" alt=""></div>
                         </noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.b8c6d6fc.css">
-<script src="/assets/js/runtime~main.15ab5594.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.45cbac95.js" defer="defer"></script>
 <script src="/assets/js/main.5d282bdc.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -18,16 +18,27 @@
 <p>Модель <strong>Mask R-CNN</strong> <a href="https://openaccess.thecvf.com/content_iccv_2017/html/He_Mask_R-CNN_ICCV_2017_paper.html" target="_blank" rel="noopener noreferrer">[1]</a> - популярный двухстадийный метод <a href="/docs/Neural-networks/Instance-segmentation/Problem-statement">сегментации объектов</a> (instance segmentation). Она строится на базе детектора <a href="/docs/Neural-networks/Object-detection/Two-stage-detectors#faster-r-cnn">Faster R-CNN</a> <a href="https://ieeexplore.ieee.org/abstract/document/7485869/" target="_blank" rel="noopener noreferrer">[2]</a>, поэтому относится к классу двухстадийных методов:</p>
 <ul>
 <li>
-<p><u>на первом шаге</u> генерируются регионы-кандидаты (regions of interest, ROI) на изображении, в которых могут содержаться интересующие объекты;</p>
+<p><u>на первом шаге</u> генерируются регионы-кандидаты (regions of interest, ROI) на изображении, в которых могут содержаться интересующие нас объекты;</p>
 </li>
 <li>
-<p><u>на втором шаг</u>е каждый регион-кандидат относится к тому или иному классу, уточняется местоположение содержащей его рамки и <u>предсказывается маска, выделяющая объект</u>.</p>
+<p><u>на втором шаг</u>е каждый регион-кандидат</p>
+<ul>
+<li>
+<p>относится к тому или иному классу</p>
+</li>
+<li>
+<p>уточняется расположение содержащей его рамки</p>
+</li>
+<li>
+<p><u>предсказывается маска, выделяющая объект</u>.</p>
+</li>
+</ul>
 </li>
 </ul>
 <p>Общая схема метода показана ниже <a href="https://openaccess.thecvf.com/content_iccv_2017/html/He_Mask_R-CNN_ICCV_2017_paper.html" target="_blank" rel="noopener noreferrer">[1]</a>:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/Mask-R-CNN-262a41d99f39fcb6dfe298436ed53bda.png" width="975" height="438" class="img_ev3q"></p>
 <p><strong>Выделение маски</strong> осуществляется отдельной веткой вычислений, не зависящих от классификации объекта и уточнения позиции рамки (class и box на схеме). Оно осуществляется серией <a href="/docs/Neural-networks/ConvPool-Images/Conv-images">свёрток</a> и <a href="/docs/Neural-networks/Semantic-segmentation/Upsampling-operations#%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%BF%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%B0%D1%8F-%D1%81%D0%B2%D1%91%D1%80%D1%82%D0%BA%D0%B0">транспонированных свёрток</a>. В конце выдаётся <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord mathnormal" style="margin-right:0.07153em">C</span></span></span></span> <a href="/docs/Neural-networks/ConvPool-Images/Conv-images">карт признаков</a> (feature maps), отвечающих выделению каждого из классов. Функция потерь выделения маски штрафует несоответствие только той карты признаков, которая отвечает классу, предсказанному классификатором.</p>
-<p>В целом функция потерь состоит из трёх компонент:</p>
+<p>Функция потерь состоит из трёх компонент:</p>
 <ul>
 <li>
 <p>точность классификации;</p>
@@ -36,24 +47,23 @@
 <p>точность выделения рамки;</p>
 </li>
 <li>
-<p>точность выделения маски на рамке.</p>
+<p>точность выделения маски в рамке.</p>
 </li>
 </ul>
-<p>Выделение регионов-кандидатов производится по карте признаков, извлекаемых свёрточным <strong>коди ровщиком</strong> (backbone).</p>
+<p>Выделение регионов-кандидатов производится по карте признаков, извлек аемых свёрточным <strong>кодировщиком</strong> (backbone).</p>
 <p>Варианты ветви вычислений, выделяющей маску объектов, показаны ниже для случая, когда кодировщиком выступает <a href="/docs/Neural-networks/Convolutional-architectures/ResNet">ResNet</a> и <a href="/docs/Neural-networks/Object-detection/Feature-Pyramid-Network">FPN</a> <a href="https://openaccess.thecvf.com/content_iccv_2017/html/He_Mask_R-CNN_ICCV_2017_paper.html" target="_blank" rel="noopener noreferrer">[1]</a>:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/Mask-R-CNN-mask-subnet-480b25d148ae9909083bd529cc22665d.png" width="930" height="286" class="img_ev3q"></p>
-<blockquote>
-<p>Наилучший результат дало использование сети FPN.</p>
-</blockquote>
+<p>Лучший результат был получен с использованием сети FPN.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="roialign">RoIAlign<a class="hash-link" aria-label="Прямая ссылка на RoIAlign" title="Прямая ссылка на RoIAlign" href="/docs/Neural-networks/Instance-segmentation/Mask-R-CNN#roialign">​</a></h2>
 <p>Для повышения точности в Mask R-CNN вместо операции <a href="/docs/Neural-networks/Object-detection/Two-stage-detectors#%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0-%D1%80%D0%B5%D0%B3%D0%B8%D0%BE%D0%BD%D0%BE%D0%B2-%D0%BA%D0%B0%D0%BD%D0%B4%D0%B8%D0%B4%D0%B0%D1%82%D0%BE%D0%B2-%D0%B2-fast-r-cnn">RoIPool</a> из Faster R-CNN (использовавшего один слой <a href="/docs/Neural-networks/ConvPool-Images/Pooling#%D0%BF%D0%B8%D1%80%D0%B0%D0%BC%D0%B8%D0%B4%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%BF%D1%83%D0%BB%D0%B8%D0%BD%D0%B3">пирамидального пулинга</a>) использовалась операция <strong>RoIAlign</strong>, делавшая то же самое, но не над исходными признаками, а над их <a href="/docs/Neural-networks/Semantic-segmentation/Upsampling-operations#%D0%B1%D0%B8%D0%BB%D0%B8%D0%BD%D0%B5%D0%B9%D0%BD%D0%B0%D1%8F-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%BF%D0%BE%D0%BB%D1%8F%D1%86%D0%B8%D1%8F">билинейно интерполированными значениями</a> с учётом произвольного расположения рамки региона интереса относительно карты признаков, что проиллюстрировано ниже <a href="https://openaccess.thecvf.com/content_iccv_2017/html/He_Mask_R-CNN_ICCV_2017_paper.html" target="_blank" rel="noopener noreferrer">[1]</a>:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/RoIAlign-2436ec87d7610d978ac2519cebb2c3ab.png" width="419" height="413" class="img_ev3q"></p>
 <p>Примеры работы сети приведены ниже <a href="https://openaccess.thecvf.com/content_iccv_2017/html/He_Mask_R-CNN_ICCV_2017_paper.html" target="_blank" rel="noopener noreferrer">[1]</a>:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/instance-segmentation-results-13b5706b97e99fb98a03d987f347241e.jpg" width="925" height="655" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="оценка-позы">Оценка позы<a class="hash-link" aria-label="Прямая ссылка на Оценка позы" title="Прямая ссылка на Оценка позы" href="/docs/Neural-networks/Instance-segmentation/Mask-R-CNN#оценка-позы">​</a></h2>
-<p>В работе также рассматривалось применение модели Mask R-CNN для <strong>оценки поз</strong> (pose estimation). Примеры решения этой задачи показаны ниже <a href="https://openaccess.thecvf.com/content_iccv_2017/html/He_Mask_R-CNN_ICCV_2017_paper.html" target="_blank" rel="noopener noreferrer">[1]</a>:</p>
-<p><img decoding="async" loading="lazy" src="/assets/images/pose-estimation-results-d5fa6c55cc1fb4096363cadb90006111.jpg" width="866" height="593" class="img_ev3q"></p>
+<p>В работе также рассматривалось применение модели Mask R-CNN для <strong>оценки поз</strong> (pose estimation).</p>
 <p>Для этого вместо <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi></mrow><annotation encoding="application/x-tex">C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord mathnormal" style="margin-right:0.07153em">C</span></span></span></span> выделяющих масок для каждого класса предсказывалось <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord mathnormal" style="margin-right:0.07153em">K</span></span></span></span> пространственных карт рейтингов присутствия для каждого опорного узла тела, по которым восстанавливалась поза человека.</p>
+<p>Примеры решения этой задачи показаны ниже <a href="https://openaccess.thecvf.com/content_iccv_2017/html/He_Mask_R-CNN_ICCV_2017_paper.html" target="_blank" rel="noopener noreferrer">[1]</a>:</p>
+<p><img decoding="async" loading="lazy" src="/assets/images/pose-estimation-results-d5fa6c55cc1fb4096363cadb90006111.jpg" width="866" height="593" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="литература">Литература<a class="hash-link" aria-label="Прямая ссылка на Литература" title="Прямая ссылка на Литература" href="/docs/Neural-networks/Instance-segmentation/Mask-R-CNN#литература">​</a></h2>
 <ol>
 <li><a href="https://openaccess.thecvf.com/content_iccv_2017/html/He_Mask_R-CNN_ICCV_2017_paper.html" target="_blank" rel="noopener noreferrer">He K. et al. Mask r-cnn //Proceedings of the IEEE international conference on computer vision. – 2017. – С. 2961-2969.</a></li>

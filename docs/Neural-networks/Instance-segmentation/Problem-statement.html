@@ -9,7 +9,7 @@
                             <div><img src="https://mc.yandex.ru/watch/98444042" style="position:absolute; left:-9999px;" alt=""></div>
                         </noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.b8c6d6fc.css">
-<script src="/assets/js/runtime~main.15ab5594.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.45cbac95.js" defer="defer"></script>
 <script src="/assets/js/main.5d282bdc.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -33,21 +33,25 @@
 <p><img decoding="async" loading="lazy" src="/assets/images/classification-semantic-segmentation-and-semantic-instance-bdc7ff58611c10c35d19074443bb69e1.png" width="850" height="402" class="img_ev3q"></p>
 <p>При <strong>классификации изображений</strong> выходом являются вероятности присутствия объектов разных классов на изображении в целом.</p>
 <p>В <strong>детекции объектов</strong> каждый объект интересующих классов выделяется прямоугольной рамкой с меткой класса, которому объект принадлежит.</p>
-<p>В <strong>семантической сегментации</strong> каждый пиксель помечается тем или иным классом, в зависимости от того, объект какого типа он покрывает. При этом, если присутствует несколько представителей одного класса, то <u>метки пикселей их различать не будут</u>. Например, на иллюстрации выше присутствует несколько овец, но все содержащие их пиксели помечены <u>одним цветом</u>.</p>
+<p>В <strong>семантической сегментации</strong> каждый пиксель помечается тем или иным классом, в зависимости от того, объект какого типа он покрывает. При этом, если присутствует несколько представителей одного класса, то <u>метки пикселей их различать не будут</u>.</p>
+<blockquote>
+<p>Например, на иллюстрации выше присутствует несколько овец, но все содержащие их пиксели помечены <u>одним цветом</u>.</p>
+</blockquote>
 <p>В <strong>сегментации объектов</strong> (instance segmentation), как и в семантической сегментации, каждый пиксель изображения помечается своим классом, при этом <u>различаются выделения различных представителей одного класса</u>, как показано на иллюстрации, на которой каждая овца была помечена своим цветом.</p>
 <blockquote>
 <p>Поэтому сегментация объектов представляет собой усложнённый вариант детекции объектов, когда каждый объект выделяется не рамкой, а маской произвольной формы.</p>
 </blockquote>
 <p>Технически сегментация объектов решается надстройкой над архитектурой детекции объектов, в которой, помимо выделения рамки, присутствует блок, прогнозирующий маску, попиксельно выделяющую каждый объект в рамке.</p>
-<p>Как и в случае детекции объектов, модели сегментации объектов бывают</p>
+<p>Как и в случае <a href="/docs/Neural-networks/Object-detection/Two-stage-detectors">детекции объектов</a>, модели сегментации объектов бывают</p>
 <ul>
 <li>
 <p><strong>одностадийные</strong> (one-stage instance segmentation), которые сразу предсказывают результат;</p>
 </li>
 <li>
-<p><strong>дв ухстадийные</strong> (two-stage instance segmentation), в которых сначала предсказываются регионы интереса (region proposals, regions of interest, ROI), для каждого из которых на втором шаге производится классификация типа объекта, уточнение координат рамки и выделение маски объекта.</p>
+<p><strong>двухстадийные</strong> (two-stage instance segmentation), в которых сначала предсказываются регионы интереса (region proposals, regions of interest, ROI), в которых могут потенциально находиться детектируемые объекты. Далее на втором шаге для каждого из региона производится классификация типа объекта, уточнение координат рамки и выделение маски объекта.</p>
 </li>
 </ul>
+<hr>
 <p>Далее будут разобраны популярная архитектура двухстадийной сегментации <a href="/docs/Neural-networks/Instance-segmentation/Mask-R-CNN">Mask R-CNN</a> и архитектура одностадийной сегментации <a href="/docs/Neural-networks/Instance-segmentation/YOLACT">YOLACT</a>.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="литература">Литература<a class="hash-link" aria-label="Прямая ссылка на Литература" title="Прямая ссылка на Литература" href="/docs/Neural-networks/Instance-segmentation/Problem-statement#литература">​</a></h2>
 <ol>
