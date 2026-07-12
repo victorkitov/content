@@ -9,7 +9,7 @@
                             <div><img src="https://mc.yandex.ru/watch/98444042" style="position:absolute; left:-9999px;" alt=""></div>
                         </noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.0ee8ef58.css">
-<script src="/assets/js/runtime~main.6c553586.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.9140864b.js" defer="defer"></script>
 <script src="/assets/js/main.64e7d5c8.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -17,28 +17,28 @@
 <p>Рассмотрим основные задачи, возникающие в глубоком обучении при обработке изображений с помощью нейросетей.</p>
 <h2 class="anchor anchorWithStickyNavbar_d2_n" id="разметка-изображений">Разметка изображений<a class="hash-link" aria-label="Прямая ссылка на Разметка изображений" title="Прямая ссылка на Разметка изображений" href="/docs/Neural-networks/Tasks/Image-task-examples#разметка-изображений">​</a></h2>
 <p>При разметке изображений выходом модели будет высокоуровневая семантическая информация об объектах на изображении.</p>
-<p><strong>Классификация изображений</strong> (image classification <a href="https://paperswithcode.com/task/image-classification" target="_blank" rel="noopener noreferrer">[1]</a>) - задача, в которой по входному изображению необходимо классифицировать, что именно на нём изображено. Популярным приложением выступает медицина, где по снимку опухоли необходимо понять, доброкачественная она или злокачественная, как на рисунке ниже <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10949936/" target="_blank" rel="noopener noreferrer">[2]</a>:</p>
+<p><strong>Классификация изображений</strong> (image classification <a href="https://www.geeksforgeeks.org/computer-vision/what-is-image-classification/" target="_blank" rel="noopener noreferrer">[1]</a>) - задача, в котор ой по входному изображению необходимо классифицировать, что именно на нём изображено. Популярным приложением выступает медицина, где по снимку опухоли необходимо понять, доброкачественная она или злокачественная, как на рисунке ниже <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10949936/" target="_blank" rel="noopener noreferrer">[2]</a>:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/01-image-classification-b0416baa2bb0f0e24af3f91003ee4bec.jpg" width="1355" height="877" class="img_fT67"></p>
 <p>Другим популярным применением классификации изображений является распознавание человека по лицу в системах безопасности. Классификации изображений посвящён <a href="/docs/Neural-networks/Convolutional-architectures">отдельный раздел книги</a>.</p>
 <p>В <strong>семантической сегментации изображений</strong> (semantic segmentation <a href="https://www.ibm.com/think/topics/semantic-segmentation" target="_blank" rel="noopener noreferrer">[3]</a>) необходимо отнести к определённому классу не всё изображение целиком, а каждый его пиксель, получая в результате сегментационную карту, на которой размечено, где какие объекты расположены (<a href="https://commons.wikimedia.org/wiki/File:Image_segmentation.png" target="_blank" rel="noopener noreferrer">источник</a>):</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/02-image-segmentation-10fde1b5d0ba3f3b802969cd16e318ee.jpg" width="1021" height="768" class="img_fT67"></p>
-<p>В семантической сегментации разные объекты одного типа, такие как машины на рисунке, относятся к одному и тому же классу. Детальному изучению этой темы также посвящён <a href="/docs/Neural-networks/Semantic-segmentation">отдельный раздел</a>.</p>
+<p>В семанти ческой сегментации разные объекты одного типа, такие как машины на рисунке, относятся к одному и тому же классу. Детальному изучению этой темы также посвящён <a href="/docs/Neural-networks/Semantic-segmentation">отдельный раздел</a>.</p>
 <p>Существует и более сложная задача <strong>сегментации объектов</strong> (instance segmentation), описываемая в соответствующем <a href="/docs/Neural-networks/Instance-segmentation">разделе книги</a>, в которой различные объекты одного и того же типа (например, разные люди или разные машины) <u>разделяются</u> и помечаются <u>разными метками</u>.</p>
 <p>В <strong>детекции объектов</strong> (object detection <a href="https://www.ibm.com/think/topics/object-detection" target="_blank" rel="noopener noreferrer">[4]</a>) на входном изображении необходимо выделить рамками все объекты заданного типа, как показано ниже (<a href="https://logituit.com/2023/11/15/object-detection-in-video-streaming/" target="_blank" rel="noopener noreferrer">источник</a>) при выделении пешеходов, машин и велосипедистов:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/03-object-detection-c173dd14eb1c91b73adb409a577b82f0.jpg" width="1424" height="815" class="img_fT67"></p>
 <p>Детекции объектов также посвящён <a href="/docs/Neural-networks/Object-detection">отдельный раздел</a> учебника.</p>
-<p>Детекция объектов, а также связанные с ней <a href="/docs/Neural-networks/Semantic-segmentation">семантическая сегментация</a> и <a href="/docs/Neural-networks/Instance-segmentation">сегментация объектов</a> часто используются в системах безопасности, при управлении транспортными потоками и в системах автоматического вождения.</p>
-<p>В задаче <strong>оценки глубины изображения</strong> (depth estimation <a href="https://paperswithcode.com/task/depth-estimation" target="_blank" rel="noopener noreferrer">[5]</a>) по входному изображению нужно оценить расстояние до объекта в каждом пикселе изображения <a href="https://udlbook.github.io/udlbook/" target="_blank" rel="noopener noreferrer">[6]</a>:</p>
+<p>Детекция объектов, а также связанные с ней <a href="/docs/Neural-networks/Semantic-segmentation">семантическая сег ментация</a> и <a href="/docs/Neural-networks/Instance-segmentation">сегментация объектов</a> часто используются в системах безопасности, при управлении транспортными потоками и в системах автоматического вождения.</p>
+<p>В задаче <strong>оценки глубины изображения</strong> (depth estimation <a href="https://www.flowhunt.io/glossary/depth-estimation/" target="_blank" rel="noopener noreferrer">[5]</a>) по входному изображению нужно оценить расстояние до объекта в каждом пикселе изображения <a href="https://udlbook.github.io/udlbook/" target="_blank" rel="noopener noreferrer">[6]</a>:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/06-depth-estimation-53fa94d6e1b61fadd349dffe539e7159.jpg" width="1243" height="265" class="img_fT67"></p>
-<p><strong>Описание изображений</strong> (image captioning <a href="https://paperswithcode.com/task/image-captioning" target="_blank" rel="noopener noreferrer">[7]</a>) - задача, в которой по изображению необходимо сгенерировать его текстовое описание. Оно часто используется в медицине для автоматической диагностики заболеваний, как показано ниже <a href="https://www.researchgate.net/publication/362724390_Research_on_chest_radiography_recognition_model_based_on_deep_learning" target="_blank" rel="noopener noreferrer">[8]</a>:</p>
+<p><strong>Описание изображений</strong> (image captioning <a href="https://medium.com/@pmegne/image-captioning-5162e22ef2ac" target="_blank" rel="noopener noreferrer">[7]</a>) - задача, в которой по изображению необходимо сгенерировать его текстовое описание. Оно часто используется в медицине для автоматической диагностики заболеваний, как показано ниже <a href="https://www.researchgate.net/publication/362724390_Research_on_chest_radiography_recognition_model_based_on_deep_learning" target="_blank" rel="noopener noreferrer">[8]</a>:</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/04-image-captioning-896943814f6f1117e1247e58a89cc289.jpg" width="850" height="401" class="img_fT67"></p>
-<p>Также эта задача активно используется в поиске изображений по текстовому запросу для предварительной конвертации изображения в текст.</p>
+<p>Также эта задача активно используется в поиске изображений по текстовому запросу для п редварительной конвертации изображения в текст.</p>
 <h2 class="anchor anchorWithStickyNavbar_d2_n" id="генерация-изображений">Генерация изображений<a class="hash-link" aria-label="Прямая ссылка на Генерация изображений" title="Прямая ссылка на Генерация изображений" href="/docs/Neural-networks/Tasks/Image-task-examples#генерация-изображений">​</a></h2>
 <p>В задачах <strong>генерации изображений</strong> (image generation) требуется сгенерировать изображение, обладающее заданными свойствами.</p>
 <p>В задаче <strong>супер-разрешения</strong> (super-resolution <a href="https://en.wikipedia.org/wiki/Super-resolution_imaging" target="_blank" rel="noopener noreferrer">[9]</a>) по входному изображению в низком разрешении нужно сгенерировать его правдоподобную версию в более высоком разрешении (<a href="https://commons.wikimedia.org/wiki/File:Phobos_in_super-resolution_%E2%80%93_before_and_after_image_correction_ESA204381.jpg" target="_blank" rel="noopener noreferrer">источник</a>):</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/08-super-resolution-263f385dca81a2f5f76fa7f89f5167b9.jpg" width="834" height="345" class="img_fT67"></p>
 <p>Эта технология активно применяется для улучшения размытых снимков, а также для повышения разрешающей способности при сильном приближении в цифровых фотоаппаратах, микроскопах и телескопах.</p>
-<p><strong>Перенос стиля</strong> (image style transfer <a href="https://paperswithcode.com/task/style-transfer" target="_blank" rel="noopener noreferrer">[10]</a>) - задача, в которой входное изображение необходимо перерисовать в стиле, задаваемым другим изображением, в качестве которого обычно выступает картина известного художника (<a href="https://commons.wikimedia.org/wiki/File:Image_style_transfer.jpg" target="_blank" rel="noopener noreferrer">источник</a>):</p>
+<p><strong>Перенос стиля</strong> (image style transfer <a href="https://en.wikipedia.org/wiki/Neural_style_transfer" target="_blank" rel="noopener noreferrer">[10]</a>) - задача, в которой входное изображение необходимо перерисовать в стиле, задаваемым другим изображением, в качестве которого обычно выступает картина известного художника (<a href="https://commons.wikimedia.org/wiki/File:Image_style_transfer.jpg" target="_blank" rel="noopener noreferrer">источник</a>):</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/05-image-style-transfer-08d95de4f60c795b689979333c6aa188.jpg" width="1370" height="366" class="img_fT67"></p>
 <p>Эта задача сложнее, чем перекраска изображений (image recoloring), поскольку требует переноса не только стилевых цветов, но и характерных стилевых паттернов, таких как мазки кисти художника.</p>
 <p>Эта задача активно применяется в индустрии развлечений, дизайне и рекламе для создания выразительных спецэффектов. А в <a href="https://arxiv.org/abs/1707.09899" target="_blank" rel="noopener noreferrer">[11]</a> эту технологию применили для разработки новых видов одежды.</p>
@@ -57,7 +57,7 @@
 <h2 class="anchor anchorWithStickyNavbar_d2_n" id="литература">Литература<a class="hash-link" aria-label="Прямая ссылка на Литература" title="Прямая ссылка на Литература" href="/docs/Neural-networks/Tasks/Image-task-examples#литература">​</a></h2>
 <ol>
 <li>
-<p><a href="https://paperswithcode.com/task/image-classification" target="_blank" rel="noopener noreferrer">paperswithcode.com: Image Classification.</a></p>
+<p><a href="https://www.geeksforgeeks.org/computer-vision/what-is-image-classification/" target="_blank" rel="noopener noreferrer">GeeksForGeeks: What is Image Classification?</a></p>
 </li>
 <li>
 <p><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10949936/" target="_blank" rel="noopener noreferrer">Harris C., Okorie U., Makrogiannis S. Spatially localized sparse approximations of deep features for breast mass characterization //Mathematical biosciences and engineering: MBE. – 2023. – Т. 20. – №. 9. – С. 15859.</a></p>
@@ -69,13 +69,13 @@
 <p><a href="https://www.ibm.com/think/topics/object-detection" target="_blank" rel="noopener noreferrer">ibm.com: What is object detection?</a></p>
 </li>
 <li>
-<p><a href="https://paperswithcode.com/task/depth-estimation" target="_blank" rel="noopener noreferrer">paperswithcode.com: Depth Estimation.</a></p>
+<p><a href="https://www.flowhunt.io/glossary/depth-estimation/" target="_blank" rel="noopener noreferrer">FlowHunt.io: Depth Estimation.</a></p>
 </li>
 <li>
 <p><a href="https://udlbook.github.io/udlbook/" target="_blank" rel="noopener noreferrer">Prince S. J. D. Understanding deep learning. – MIT press, 2023.</a></p>
 </li>
 <li>
-<p><a href="https://paperswithcode.com/task/image-captioning" target="_blank" rel="noopener noreferrer">paperswithcode.com: Image Captioning.</a></p>
+<p><a href="https://medium.com/@pmegne/image-captioning-5162e22ef2ac" target="_blank" rel="noopener noreferrer">Medium.com: Image Captioning.</a></p>
 </li>
 <li>
 <p><a href="https://www.researchgate.net/publication/362724390_Research_on_chest_radiography_recognition_model_based_on_deep_learning" target="_blank" rel="noopener noreferrer">Li H. et al. Research on chest radiography recognition model based on deep learning //Math. Biosci. Eng. – 2022. – Т. 19. – С. 11768-11781.</a></p>
@@ -84,7 +84,7 @@
 <p><a href="https://en.wikipedia.org/wiki/Super-resolution_imaging" target="_blank" rel="noopener noreferrer">Wikipedia: Super-resolution imaging.</a></p>
 </li>
 <li>
-<p><a href="https://paperswithcode.com/task/style-transfer" target="_blank" rel="noopener noreferrer">paperswithcode.com: Style Transfer.</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Neural_style_transfer" target="_blank" rel="noopener noreferrer">Wikipedia: Neural style transfer.</a></p>
 </li>
 <li>
 <p><a href="https://arxiv.org/abs/1707.09899" target="_blank" rel="noopener noreferrer">Ganesan A. et al. Fashioning with networks: Neural style transfer to design clothes //arXiv preprint arXiv:1707.09899. – 2017.</a></p>

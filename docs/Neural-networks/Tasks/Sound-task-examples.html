@@ -9,7 +9,7 @@
                             <div><img src="https://mc.yandex.ru/watch/98444042" style="position:absolute; left:-9999px;" alt=""></div>
                         </noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.0ee8ef58.css">
-<script src="/assets/js/runtime~main.6c553586.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.9140864b.js" defer="defer"></script>
 <script src="/assets/js/main.64e7d5c8.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -19,8 +19,8 @@
 <p>Звук для обработки представляется либо в виде <strong>wave-формы</strong> (динамики силы звуковой волны во времени <a href="https://en.wikipedia.org/wiki/Waveform" target="_blank" rel="noopener noreferrer">[1]</a>), либо <strong>спектрограммы</strong> (spectrogram <a href="https://en.wikipedia.org/wiki/Spectrogram" target="_blank" rel="noopener noreferrer">[2]</a>), описывающей представленность тех или иных  частот во времени. Они показаны на рисунке сверху и снизу соответственно (<a href="https://www.flickr.com/photos/aaronpk/4947807970" target="_blank" rel="noopener noreferrer">источник</a>):</p>
 <p><img decoding="async" loading="lazy" src="/assets/images/13-waveform-spectrogram-31d82bd4070a6df99efe361950cb3b56.jpg" width="1758" height="880" class="img_fT67"></p>
 <h2 class="anchor anchorWithStickyNavbar_d2_n" id="основные-задачи-обработки-звуковых-данных">Основные задачи обработки звуковых данных<a class="hash-link" aria-label="Прямая ссылка на Основные задачи обработки звуковых данных" title="Прямая ссылка на Основные задачи обработки звуковых данных" href="/docs/Neural-networks/Tasks/Sound-task-examples#основные-задачи-обработки-звуковых-данных">​</a></h2>
-<p>Опишем основные задачи, возникающие при обработке звука.</p>
-<p><strong>Классификация звука</strong> (audio classification <a href="https://paperswithcode.com/task/audio-classification" target="_blank" rel="noopener noreferrer">[3]</a>) - отнесение звука к одной из заранее заданных категорий. Примеры:</p>
+<p>Опишем основные задачи, возникающие при обработке звуковых данных.</p>
+<p><strong>Классификация звука</strong> (audio classification) - отнесение звука к одной из заранее заданных категорий. Примеры:</p>
 <ul>
 <li>
 <p>Определение жанра, исполнителя и названия композиции записанной мелодии.</p>
@@ -32,16 +32,19 @@
 <p>Анализ эмоций по голосу (интонации, тембру, скорости речи и другим акустическим характеристикам). Используется в колл-центрах и виртуальных ассистентах.</p>
 </li>
 </ul>
-<p><strong>Сегментация звука</strong> (audio segmentation, speaker diarization <a href="https://paperswithcode.com/task/speaker-diarization" target="_blank" rel="noopener noreferrer">[4]</a>) - разделение разговора нескольких собеседников на фрагменты, в которых говорит каждый из собеседников. Может использоваться для автоматической фокусировки камеры на говорящем спикере, транскрипции диалога и суммаризации проведённой видеоконференции.</p>
-<p><strong>Повышение качества звука</strong> (audio super-resolution, speech enhancement <a href="https://paperswithcode.com/task/speech-enhancement" target="_blank" rel="noopener noreferrer">[5]</a>). Цифровой звук имеет два уровня дискретизации: число бит, кодирующих сигнал в каждый момент времени, а также частоту моментов времени, в которые записывается сила звукового сигнала. Нейросетевыми методами можно повышать оба уровня дискретизации, улучшая качество воспроизведения.</p>
-<p><strong>Распознавание речи</strong> (automatic speech recognition, ASR <a href="https://paperswithcode.com/task/automatic-speech-recognition" target="_blank" rel="noopener noreferrer">[6]</a>) - перевод звука в текст. Применяется для документации переговоров, а также для автоматического формирования субтитров на видеоплатформах.</p>
-<p><strong>Генерация речи</strong> (text-to-speech, TTS, speech synthesis <a href="https://paperswithcode.com/task/text-to-speech-synthesis" target="_blank" rel="noopener noreferrer">[7]</a>), используется голосовыми помощниками. Родственной задачей является <strong>генерация музыки</strong> по жанру, нотам, словам песни.</p>
-<p><strong>Удаление шума</strong> (speech enhancement <a href="https://paperswithcode.com/task/speech-enhancement" target="_blank" rel="noopener noreferrer">[8]</a>) - задача извлечения чистого речевого сигнала из шумной аудиозаписи. Применяется в системах видеосвязи, распознавании речи</p>
-<p><strong>Разделение источников звука</strong> (audio source separation <a href="https://paperswithcode.com/task/audio-source-separation" target="_blank" rel="noopener noreferrer">[9]</a>). Используется при разделении записанного диалога на фразы отдельных спикеров, а также при декомпозиции песни на голос, барабаны, бас и другие инструменты.</p>
-<p><strong>Сжатие и генерация аудио</strong> (neural audio compression <a href="https://paperswithcode.com/task/audio-compression" target="_blank" rel="noopener noreferrer">[10]</a>) по сжатому представлению.</p>
+<p><strong>Сегментация звука</strong> (audio segmentation, speaker diarization) - разделение разговора нескольких собеседников на фрагменты, в которых говорит каждый из собеседников.</p>
+<blockquote>
+<p>Это может использоваться для автоматической фокусировки камеры на говорящем спикере, транскрипции диалога и суммаризации проведённой видеоконференции.</p>
+</blockquote>
+<p><strong>Повышение качества звука</strong> (audio super-resolution, speech enhancement). Цифровой звук имеет два уровня дискретизации: число бит, кодирующих сигнал в каждый момент времени, а также частоту моментов времени, в которые записывается сила звукового сигнала. Нейросетевыми методами можно повышать оба уровня дискретизации, улучшая качество воспроизведения.</p>
+<p><strong>Распознавание речи</strong> (automatic speech recognition, ASR) - перевод звука в текст. Применяется для документирования переговоров, а также для автоматического формирования субтитров на видеоплатформах.</p>
+<p><strong>Генерация речи</strong> (text-to-speech, TTS, speech synthesis) используется голосовыми помощниками. Родственной задачей является <strong>генерация музыки</strong> по жанру, нотам или словам песни.</p>
+<p><strong>Удаление шума</strong> (speech enhancement) - задача извлечения чи стого речевого сигнала из шумной аудиозаписи. Применяется в системах видеосвязи и распознавании речи.</p>
+<p><strong>Разделение источников звука</strong> (audio source separation). Используется при разделении записанного диалога на фразы отдельных спикеров, а также при декомпозиции песни на голос, барабаны, бас и другие инструменты.</p>
+<p><strong>Сжатие аудио</strong> (neural audio compression) и генерация по сжатому представлению. Используется для компактного хранения аудиоданных.</p>
 <p><strong>Стилизация звука</strong> (voice conversion / audio style transfer) - трансформация речи под другого спикера. Например, это позволяет участнику игры говорить голосом своего персонажа.</p>
 <blockquote>
-<p>Звук, как последовательность амплитуд звуковой волны (в wav-формате) или как последовательность звучащих в каждый момент времени частот (в виде спектрограммы) можно обрабатывать <a href="/docs/Neural-networks/Recurrent-neural-nets">рекуррентными сетями</a>. Более высокое качество обеспечивают <a href="/docs/Neural-networks/Transformer">использование механизма внимания и трансформерных моделей</a>.</p>
+<p>Звук, как последовательность амплитуд звуковой волны (в wav-формате) или как последовательность звучащих в каждый момент времени частот (в виде спектрограммы) можно обрабатывать <a href="/docs/Neural-networks/Recurrent-neural-nets">рекуррентными сетями</a>. Более высокое качество достигается использованием <a href="/docs/Neural-networks/Transformer">механизма внимания и трансформерных моделей</a>.</p>
 </blockquote>
 <h2 class="anchor anchorWithStickyNavbar_d2_n" id="литература">Литература<a class="hash-link" aria-label="Прямая ссылка на Литература" title="Прямая ссылка на Литература" href="/docs/Neural-networks/Tasks/Sound-task-examples#литература">​</a></h2>
 <ol>
@@ -50,30 +53,6 @@
 </li>
 <li>
 <p><a href="https://en.wikipedia.org/wiki/Spectrogram" target="_blank" rel="noopener noreferrer">Wikipedia: Spectrogram.</a></p>
-</li>
-<li>
-<p><a href="https://paperswithcode.com/task/audio-classification" target="_blank" rel="noopener noreferrer">paperswithcode.com: Audio Classification.</a></p>
-</li>
-<li>
-<p><a href="https://paperswithcode.com/task/speaker-diarization" target="_blank" rel="noopener noreferrer">paperswithcode.com: Speaker Diarization.</a></p>
-</li>
-<li>
-<p><a href="https://paperswithcode.com/task/speech-enhancement" target="_blank" rel="noopener noreferrer">paperswithcode.com: Speech Enhancement.</a></p>
-</li>
-<li>
-<p><a href="https://paperswithcode.com/task/automatic-speech-recognition" target="_blank" rel="noopener noreferrer">paperswithcode.com: Automatic Speech Recognition (ASR).</a></p>
-</li>
-<li>
-<p><a href="https://paperswithcode.com/task/text-to-speech-synthesis" target="_blank" rel="noopener noreferrer">paperswithcode.com: Text-To-Speech Synthesis.</a></p>
-</li>
-<li>
-<p><a href="https://paperswithcode.com/task/speech-enhancement" target="_blank" rel="noopener noreferrer">paperswithcode.com: Speech Enhancement.</a></p>
-</li>
-<li>
-<p><a href="https://paperswithcode.com/task/audio-source-separation" target="_blank" rel="noopener noreferrer">paperswithcode.com: Audio Source Separation.</a></p>
-</li>
-<li>
-<p><a href="https://paperswithcode.com/task/audio-compression" target="_blank" rel="noopener noreferrer">paperswithcode.com: Audio Compression.</a></p>
 </li>
 </ol></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Страница документа"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Neural-networks/Tasks/Text-task-examples"><div class="pagination-nav__sublabel">Предыдущая страница</div><div class="pagination-nav__label">Обработка текста</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Neural-networks/Tasks/Graph-task-examples"><div class="pagination-nav__sublabel">Следующая страница</div><div class="pagination-nav__label">Обработка графов</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_uXTG thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a class="table-of-contents__link toc-highlight" href="/docs/Neural-networks/Tasks/Sound-task-examples#представление-звука">Представление звука</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/Neural-networks/Tasks/Sound-task-examples#основные-задачи-обработки-звуковых-данных">Основные задачи обработки звуковых данных</a></li><li><a class="table-of-contents__link toc-highlight" href="/docs/Neural-networks/Tasks/Sound-task-examples#литература">Литература</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">© 2023-25 <a href="https://victorkitov.github.io/">Виктор Китов.</a>  <a href="https://t.me/deepmachinelearningru">Новости проекта.</a></div></div></div></footer></div>
 </body>
