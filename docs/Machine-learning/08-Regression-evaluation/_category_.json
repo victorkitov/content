@@ -1,0 +1,8 @@
+{
+  "label": "Оценка качества регрессии",
+  "link": {
+    "slug": Machine-learning/Regression-evaluation,
+    "type": "generated-index",
+    "description": "В этом разделе вы узнаете, как можно оценивать качество прогнозов регрессионных моделей."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "Линейная регрессия и её обобщения",
+  "link": {
+    "slug": Machine-learning/Linear-regression-extensions,  
+    "type": "generated-index",
+    "description": "В этом разделе вы изучите алгоритм линейной регрессии и способы его усложения и обобщения."
+  }
+}

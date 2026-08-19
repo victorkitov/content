@@ -1,0 +1,13 @@
+{
+  "label": "Оценка качества кластеризации",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "slug": Machine-learning/Clustering-evaluation,   
+    "type": "generated-index",
+    "description": "В этом разделе вы изучите основные способы оценки качества кластеризации."
+  }
+}
+
+
+

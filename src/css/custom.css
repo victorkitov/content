@@ -1,0 +1,165 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+
+
+:root {
+  --ifm-color-primary: #4c9ec8;
+  --ifm-color-primary-dark: #3a91be;
+  --ifm-color-primary-darker: #3789b3;
+  --ifm-color-primary-darkest: #2d7194;
+  --ifm-color-primary-light: #61a9ce;
+  --ifm-color-primary-lighter: #6cafd2;
+  --ifm-color-primary-lightest: #8bc0db;
+}
+
+
+[data-theme='dark'] {
+  --ifm-color-primary: #50a1d3;
+  --ifm-color-primary-dark: #3995cd;
+  --ifm-color-primary-darker: #328dc6;
+  --ifm-color-primary-darkest: #2974a3;
+  --ifm-color-primary-light: #67add9;
+  --ifm-color-primary-lighter: #73b4dc;
+  --ifm-color-primary-lightest: #96c6e5;
+}
+
+/* custom modifications */
+img {
+    display: block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;  /* Makes the image responsive within its container */
+    max-width: 600px !important;
+    
+    /*padding-left: 6em;
+    padding-right: 6em;*/
+}
+
+.navbar__logo img {
+  width: 32px; 
+  height: 32px;
+}
+
+table {
+    display: table;
+    width: initial;
+    margin-left: auto;
+    margin-right: auto;    
+}
+
+
+
+div.title {  /* Book title */
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center; 
+    margin-top: 1.7em;
+    margin-bottom: 0.5em;
+}
+
+div.author {  /* Book author */
+    font-size: 2em;
+    text-align: center; 
+    margin-bottom: 1.3em;
+}
+
+div.version {  /* Book details */
+    font-size: 1.2em;
+    text-align: center; 
+    margin-bottom: 4em;
+}
+
+div.comment {  /* Book comments */
+    font-size: 1.2em;
+    text-align: center; 
+}
+
+div.centered {
+    text-align: center;
+}
+
+div.boxed {  /* Book boxed announcement */
+    border: solid;
+    border-width: thin;
+
+    margin-top: 4em;
+    margin-bottom: 4em;
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;    
+    
+    font-size: 1.0em;
+    padding: 0.4em 0.8em 0.3em 0.2em;
+    
+    max-width: 49em !important;    
+}
+
+
+div.dedicated {  /* Book dedicated to ... style */
+    text-align: center; 
+    font-style: italic; 
+    margin-bottom: 2em;
+}
+
+
+div.caption {  
+text-align: center;
+}
+
+
+.hidden {
+display: none !important;
+}
+
+
+
+
+
+div.code_start {
+  margin-top: 2em;
+  overflow: hidden;
+  text-align: center;
+}
+
+div.code_start::before,
+div.code_start::after {
+  background-color: rgba(150,150,150,1.0);
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+div.code_start::before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+div.code_start::after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+
+div.code_end {
+  overflow: hidden;
+  text-align: center;
+  background-color: rgba(150,150,150,1.0);
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  margin-top:-2em;
+  width: 100%;
+  
+}

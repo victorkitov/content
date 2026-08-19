@@ -1,0 +1,8 @@
+{
+  "label": "Ансамбли моделей",
+  "link": {
+    "slug": Machine-learning/Model-ensembles,  
+    "type": "generated-index",
+    "description": "В этом разделе вы изучите как строить прогнозы с помощью не одной, а сразу нескольких моделей."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "Переобучение и недообучение",
+  "link": {
+    "slug":Machine-learning/Overfitting-and-underfitting,
+    "type": "generated-index",
+    "description": "В этом разделе мы детальнее разберём понятия переобученных и недообученных моделей."
+  }
+}

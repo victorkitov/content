@@ -1,0 +1,13 @@
+{
+  "label": "Основные свёрточные архитектуры",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "slug": Neural-networks/Convolutional-architectures,
+    "type": "generated-index",
+    "description": "В этом разделе вы познакомитесь с основными свёрточными архитектурами для классификации изображений."
+  }
+}
+
+
+

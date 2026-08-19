@@ -1,0 +1,13 @@
+{
+  "label": "Упрощение настройки",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "slug": Neural-networks/Training-simplification,   
+    "type": "generated-index",
+    "description": "В этом разделе вы изучите популярные приемы, упрощающие и ускоряющие настройку нейронных сетей."
+  }
+}
+
+
+

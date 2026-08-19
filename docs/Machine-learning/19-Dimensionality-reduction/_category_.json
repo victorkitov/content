@@ -1,0 +1,13 @@
+{
+  "label": "Снижение размерности данных",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "slug": Machine-learning/Dimensionality-reduction,    
+    "type": "generated-index",
+    "description": "В этом разделе описываются основные методы снижения размерности многомерных данных."
+  }
+}
+
+
+

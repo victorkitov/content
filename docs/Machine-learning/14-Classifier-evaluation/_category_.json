@@ -1,0 +1,8 @@
+{
+  "label": "Оценка качества классификации",
+  "link": {
+    "slug": Machine-learning/Classifier-evaluation,
+    "type": "generated-index",
+    "description": "В этом разделе вы изучите основные меры оценки качества классификации."
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "label": "Основы машинного обучения",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "slug":Machine-learning/Base-concepts,
+    "type": "generated-index",
+    "description": "В этом разделе вы узнаете основные понятия и этапы машинного обучения."
+  }
+}
+
+
+

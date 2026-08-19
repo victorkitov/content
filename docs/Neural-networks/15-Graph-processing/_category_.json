@@ -1,0 +1,13 @@
+{
+  "label": "Обработка графов",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "slug": Neural-networks/Graph-processing,     
+    "description": "В этом разделе вы узнаете основные задачи, решаемые на данных, представимых с помощью графа, а также нейросетевые методы решения этих задач."
+  }
+}
+
+
+

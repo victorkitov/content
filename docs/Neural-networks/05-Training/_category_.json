@@ -1,0 +1,13 @@
+{
+  "label": "Обучение нейросетей",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "slug": Neural-networks/Training-neural-networks,    
+    "type": "generated-index",
+    "description": "В этом разделе вы познакомитесь с методами настройки параметров нейросетевых моделей."
+  }
+}
+
+
+

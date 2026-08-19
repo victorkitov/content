@@ -1,0 +1,13 @@
+{
+  "label": "Основы нейросетевых архитектур",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "slug": Neural-networks/Multilayer-perceptron,  
+    "type": "generated-index",
+    "description": "В этом разделе вы познакомитесь с простейшей и самой распространённой архитектурой нейронной сети для независимой обработки векторных данных - многослойным персептроном (multilayer perceptron), а также будут изучены его свойства."
+  }
+}
+
+
+

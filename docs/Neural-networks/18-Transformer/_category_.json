@@ -1,0 +1,13 @@
+{
+  "label": "Трансформер",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "slug": Neural-networks/Transformer,     
+    "description": "В этом разделе вы изучите продвинутый метод обработки и генерации последовательностей моделью трансформера (transformer), основанного на механизме внимания (attention mechanism)."
+  }
+}
+
+
+

@@ -1,0 +1,12 @@
+{
+  "label": "Простейшая нейросеть",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "generated-index",
+    "description": "В этом разделе вы познакомитесь с простейшей архитектурой нейронной сети - многослойным персептроном (multilayer perceptron)."
+  }
+}
+
+
+

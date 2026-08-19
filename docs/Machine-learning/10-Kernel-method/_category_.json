@@ -1,0 +1,13 @@
+{
+  "label": "Ядерное обобщение методов",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "slug": Machine-learning/Kernel-method,  
+    "type": "generated-index",
+    "description": "В этом разделе вы познакомитесь с ядерным обобщением линейных методов (kernel method, kernel trick), которое позволяет вычислительно эффективно превратить это методы из линейных в нелинейные."
+  }
+}
+
+
+

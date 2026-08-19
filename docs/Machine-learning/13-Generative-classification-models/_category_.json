@@ -1,0 +1,13 @@
+{
+  "label": "Генеративные модели классификации",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "slug": Machine-learning/Generative-classification-models,    
+    "type": "generated-index",
+    "description": "В этом разделе вы познакомитесь с генеративными моделями для классификации данных."
+  }
+}
+
+
+

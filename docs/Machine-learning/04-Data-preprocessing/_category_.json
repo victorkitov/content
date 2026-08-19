@@ -1,0 +1,8 @@
+{
+  "label": "Подготовка данных",
+  "link": {
+    "slug":Machine-learning/Data-preprocessing,
+    "type": "generated-index",
+    "description": "В этом разделе вы изучите основные методы подготовки данных к работе с ними методов машинного обучения."
+  }
+}

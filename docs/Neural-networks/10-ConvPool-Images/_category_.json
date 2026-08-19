@@ -1,0 +1,13 @@
+{
+  "label": "Локальная обработка изображений",
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "slug": Neural-networks/Convolution-for-images-2D,  
+    "type": "generated-index",
+    "description": "В этом разделе вы изучите извлечение признаков из изображений с помощью операций свёртки (convolution) и пулинга (pooling), их продвинутые версии, а также методы работы со свёрточными слоями нейросети."
+  }
+}
+
+
+

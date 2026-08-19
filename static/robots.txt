@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /docs/docs_ml/
+Disallow: /docs/docs_dl/
+Sitemap: https://deepmachinelearning.ru/sitemap.xml

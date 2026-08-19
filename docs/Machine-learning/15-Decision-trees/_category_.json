@@ -1,0 +1,8 @@
+{
+  "label": "Решающие деревья",
+  "link": {
+    "slug": Machine-learning/Decision-trees,  
+    "type": "generated-index",
+    "description": "В этом разделе вы изучите алгоритм решающих деревьев для решения задачи регрессии и классификации."
+  }
+}
