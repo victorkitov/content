@@ -9,7 +9,7 @@
                             <div><img src="https://mc.yandex.ru/watch/98444042" style="position:absolute; left:-9999px;" alt=""></div>
                         </noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.9b8b25ae.css">
-<script src="/assets/js/runtime~main.5644d844.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.fbbf50c1.js" defer="defer"></script>
 <script src="/assets/js/main.07a50c9e.js" defer="defer"></script>
 </head>
 <body>
@@ -34,16 +34,16 @@
 Разбиение омонимов существенно влияет на смысл слова. Рассмотрим, к примеру, слово <em>Unionized</em>. В зависимости от контекста оно может означать:</p>
 <ul>
 <li class="">
-<p><code>[Union]</code>, <code>[ized]</code> — объединенный в профсоюз.</p>
+<p><code>[Union]</code>, <code>[ized]</code> - объединенный в профсоюз.</p>
 </li>
 <li class="">
-<p><code>[Un]</code>, <code>[ionized]</code> — неионизированный (в физике).</p>
+<p><code>[Un]</code>, <code>[ionized]</code> - неионизированный (в физике).</p>
 </li>
 </ul>
 <p>Детерминированный алгоритм выберет лишь один, наиболее частотный вариант разбиения, лишая языковую модель возможности правильно интерпретировать альтернативный смысл.</p>
 </li>
 </ul>
-<h2 class="anchor anchorTargetStickyNavbar_ahd2" id="библиотека-sentencepiece-и-алгоритм-unigram">Библиотека SentencePiece и алгоритм Unigram<a href="#библиотека-sentencepiece-и-алгоритм-unigram" class="hash-link" aria-label="Прямая ссылка на Библиотека SentencePiece и алгоритм Unigram" title="Прямая ссылка на Библиотека SentencePiece и алгоритм Unigram" translate="no">  ​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_ahd2" id="библиотека-sentencepiece-и-алгоритм-unigram">Библиотека SentencePiece и алгоритм Unigram<a href="#библиотека-sentencepiece-и-алгоритм-unigram" class="hash-link" aria-label="Прямая ссылка на Библиотека SentencePiece и алгоритм Unigram" title="Прямая ссылка на Библиотека SentencePiece и алгоритм Unigram" translate="no">​</a></h2>
 <p>Для решения описанных проблем была разработана библиотека <strong>SentencePiece</strong> <a href="https://arxiv.org/abs/1808.06226" target="_blank" rel="noopener noreferrer" class="">[1]</a>. В отличие от BPE и WordPiece, которые требуют предварительного разбиения текста на слова, SentencePiece представляет собой комплексный обработчик, работающий напрямую с сырым текстом (end-to-end).</p>
 <p>Это свойство делает предварительную обработку (пре-токенизацию) ненужной, что особенно удобно для языков, в которых исторически отсутствуют пробелы между словами, таких как японский и китайский. Библиотека активно используется в архитектурах T5, ALBERT и XLNet.</p>
 <p>В основе автоматического разбиения текста в SentencePiece лежит алгоритм <strong>Unigram</strong> <a href="https://arxiv.org/abs/1804.10959" target="_blank" rel="noopener noreferrer" class="">[2]</a>. В отличие от BPE, который строит словарь снизу вверх, последовательно объединяя токены в более крупные и стартуя от базовых символов, Unigram работает по принципу сверху вниз. Он инициализируется избыточным словарем, содержащим множество длинных фраз и слов, а затем итеративно удаляет из него наименее полезные токены, пока не достигнет целевого размера словаря.</p>
@@ -72,17 +72,17 @@
 <details class="details_o86L alert alert--info details_S2_6" data-collapsed="true"><summary>Можно ли использовать несколько вариантов разбиения не только при обучении, но и при инференсе?</summary><div><div class="collapsibleContent_nHkY">
 <!-- -->
 <p>
-</p><p>Да, для дополн ительного повышения качества обработки возможна генерация по <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord mathnormal" style="margin-right:0.07153em">K</span></span></span></span> лучшим вариантам сегментации. Модель может оценить несколько наиболее вероятных разбиений (например, для слова Unionized рассмотреть оба возможных смысла) и выбрать наилучший итоговый результат с учетом контекста всего предложения. Однако такой подход требует в <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord mathnormal" style="margin-right:0.07153em">K</span></span></span></span> раз больше вычислений.</p>
+</p><p>Да, для дополните льного повышения качества обработки возможна генерация по <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord mathnormal" style="margin-right:0.07153em">K</span></span></span></span> лучшим вариантам сегментации. Модель может оценить несколько наиболее вероятных разбиений (например, для слова Unionized рассмотреть оба возможных смысла) и выбрать наилучший итоговый результат с учетом контекста всего предложения. Однако такой подход требует в <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord mathnormal" style="margin-right:0.07153em">K</span></span></span></span> раз больше вычислений.</p>
 <p></p>
 </div></div></details>
 <h2 class="anchor anchorTargetStickyNavbar_ahd2" id="сравнение-с-tiktoken">Сравнение с Tiktoken<a href="#сравнение-с-tiktoken" class="hash-link" aria-label="Прямая ссылка на Сравнение с Tiktoken" title="Прямая ссылка на Сравнение с Tiktoken" translate="no">​</a></h2>
 <p>Если сравнивать библиотеку SentencePiece с <a class="" href="/docs/Neural-networks/Text-tokenization-methods/BBPE-tokenizer#%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D0%BE%D1%82%D0%B5%D0%BA%D0%B0-tiktoken">Tiktoken</a> (использующей Byte-Level BPE), можно выделить следующие различия:</p>
 <ul>
-<li class=""><strong>Вычислительная сложность</strong>: Tiktoken концептуально проще и работает значительно быстрее на этапе инференса. Ему не требуется применять алгоритм  Витерби для поиска наиболее вероятного разбиения — он сразу последовательно применяет выученные правила слияния.</li>
+<li class=""><strong>Вычислительная сложность</strong>: Tiktoken концептуально проще и работает значительно быстрее на этапе инференса. Ему не требуется применять алгоритм  Витерби для поиска наиболее вероятного разбиения - он сразу последовательно применяет выученные правила слияния.</li>
 <li class=""><strong>Работа со специальными форматами</strong>: В Tiktoken на этапе пре-токенизации грамотно подобраны правила на основе регулярных выражений (RegEx) для изолированной работы с числами, пунктуацией и отступами в программном коде. SentencePiece лишен встроенных эвристик пре-токенизации и вынужден самостоятельно, с нуля, выучивать закономерности форматирования кода или чисел, что часто приводит к менее предсказуемому разбиению математических выражений и кода.</li>
 </ul>
 <p>Однако SentencePiece способен обеспечить более устойчивую работу языковой модели при наличии опечаток и при работе с морфологически богатыми языками, в которых каждое слово может участвовать в виде большого числа вариативных словоформ.</p>
-<p>Дополнительно прочитать о Unigram-токенизации, лежащей в осно ве библиотеки SentencePiece, а также о её использовании в библиотеке transformers можно в <a href="https://huggingface.co/learn/llm-course/ru/chapter6/7" target="_blank" rel="noopener noreferrer" class="">[3]</a>.</p>
+<p>Дополнительно прочитать о Unigram-токенизации, лежащей в основе библиотеки SentencePiece, а также о её использовании в библиотеке transformers можно в <a href="https://huggingface.co/learn/llm-course/ru/chapter6/7" target="_blank" rel="noopener noreferrer" class="">[3]</a>.</p>
 <h2 class="anchor anchorTargetStickyNavbar_ahd2" id="литература">Литература<a href="#литература" class="hash-link" aria-label="Прямая ссылка на Литература" title="Прямая ссылка на Литература" translate="no">​</a></h2>
 <ol>
 <li class=""><a href="https://arxiv.org/abs/1808.06226" target="_blank" rel="noopener noreferrer" class="">Kudo T., Richardson J. SentencePiece: A simple and language independent subword tokenizer and detokenizer for neural text processing. – Empirical Methods in Natural Language Processing. – 2018.</a></li>
