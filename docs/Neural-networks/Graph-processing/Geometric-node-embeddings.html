@@ -9,7 +9,7 @@
                             <div><img src="https://mc.yandex.ru/watch/98444042" style="position:absolute; left:-9999px;" alt=""></div>
                         </noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.9b8b25ae.css">
-<script src="/assets/js/runtime~main.cc81384d.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.32fe1064.js" defer="defer"></script>
 <script src="/assets/js/main.28779d85.js" defer="defer"></script>
 </head>
 <body>
@@ -85,11 +85,11 @@
 <p>Если рёбра на графе являются взвешенными (ребрам сопоставлены числа, обозначающие силу связи), то вероятности переходов нужно ещё дополнительно домножать на веса соответствующих связей.</p>
 </blockquote>
 <details class="details_o86L alert alert--info details_S2_6" data-collapsed="true"><summary>
-Как гиперпараметры $p,q$ влияют на характер обхода графа (в глубину/в ширину)?
+<p>Как гиперпараметры <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo separator="true">,</mo><mi>q</mi></mrow><annotation encoding="application/x-tex">p,q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em"></span><span class="mord mathnormal">p</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em"></span><span class="mord mathnormal" style="margin-right:0.03588em">q</span></span></span></span> влияют на характер обхода графа (в глубину/в ширину)?</p>
 </summary><div><div class="collapsibleContent_nHkY">
 <!-- -->
 <p>
-При малых значениях $p$ обход будет вестись больше в ширину, стимулируя частые возвращения в исходную вершину. Малые значения $q$, наоборот, поощряют поиск в глубину, удаляясь от исходной вершины.
+При малых значениях $p$ обход будет вестись больше в ширину, стимулируя частые возвращения в исходную вершину. Малые зн ачения $q$, наоборот, поощряют поиск в глубину, удаляясь от исходной вершины.
 </p>
 </div></div></details>
 <p>Обход в глубину выделяет <u>сообщества в графе</u> (то есть подмножества сильно связанных друг с другом вершин напрямую или опосредованно). У узлов одного сообщества будут будут получаться похожие эмбеддинги.</p>
@@ -121,7 +121,7 @@
 </ul>
 <p>По этим причинам она плохо подходит для задач восстановления геометрии графа, таких как восстановление рёбер (link prediction) и обнаружение сообществ (community prediction).</p>
 <p>Поэтому в работе <a href="https://www.kdd.org/kdd2016/papers/files/rfp0191-wangAemb.pdf" target="_blank" rel="noopener noreferrer" class="">[3]</a> предлагается настраивать <a class="" href="/docs/Neural-networks/Special-architectures/Autoencoders">автокодировщик</a>, восстанавливающий строки матрицы смежности, а в качестве эмбеддинга вершины брать <u>внутреннее представление автокодировщика</u> (результат применения кодировочной части) для строки матрицы смежности соответствующей вершины.</p>
-<p>Для более точной настройки автокодировщика в целевом критерии предлагается не только восстанавливать строки матрицы смежности, но и штрафовать расхождения внутренних представлений для вершин, которые непосредственно связаны друг с другом ребром. Также в критерии присутствует регуляризатор, призванный избежать переобучения, вызванного тем, что число параметров автокодировщика растёт линейно с ростом размерности входных данных (числом вершин графа).</p>
+<p>Для более точной настройки автокодировщика в целевом критерии предлагается не только восстанавливать строки матрицы смежности, но и штрафовать расхождения внутренних представлений для вершин, которые непосредственно связаны д руг с другом ребром. Также в критерии присутствует регуляризатор, призванный избежать переобучения, вызванного тем, что число параметров автокодировщика растёт линейно с ростом размерности входных данных (числом вершин графа).</p>
 <h2 class="anchor anchorTargetStickyNavbar_ahd2" id="совмещение-подходов">Совмещение подходов<a href="#совмещение-подходов" class="hash-link" aria-label="Прямая ссылка на Совмещение подходов" title="Прямая ссылка на Совмещение подходов" translate="no">​</a></h2>
 <p>Представленные подходы выделяют эмбеддинги, описывающие геометрию графа (связи между вершинами). <a class="" href="/docs/Neural-networks/Graph-processing/Graph-convolutional-networks">Свёрточные графовые сети</a> (GCN) призваны уточнять признаковые описания вершин по их соседям. Эти подходы можно объединить одним из двух способов:</p>
 <ul>
@@ -132,7 +132,7 @@
 <p>Дополнить начальные признаковые описания вершин их геометрическими эмбеддингами перед применением GCN (если есть дополнительная информация о вершинах).</p>
 </li>
 </ul>
-<h2 class="anchor anchorTargetStickyNavbar_ahd2" id="литература">Литература<a href="#литература" class="hash-link" aria-label="Прямая ссылка на Литература" title="Прямая ссылка на Литература" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_ahd2" id="литература">Литератур а<a href="#литература" class="hash-link" aria-label="Прямая ссылка на Литература" title="Прямая ссылка на Литература" translate="no">​</a></h2>
 <ol>
 <li class=""><a href="https://arxiv.org/pdf/1403.6652" target="_blank" rel="noopener noreferrer" class="">Perozzi B., Al-Rfou R., Skiena S. Deepwalk: Online learning of social representations //Proceedings of the 20th ACM SIGKDD international conference on Knowledge discovery and data mining. – 2014. – С. 701-710.</a></li>
 <li class=""><a href="https://arxiv.org/pdf/1607.00653" target="_blank" rel="noopener noreferrer" class="">Grover A., Leskovec J. node2vec: Scalable feature learning for networks //Proceedings of the 22nd ACM SIGKDD international conference on Knowledge discovery and data mining. – 2016. – С. 855-864.</a></li>
